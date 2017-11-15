@@ -15,7 +15,7 @@
     }
   },
   "require": {
-    "illuminate/validation": "^5.6@dev",
+    "illuminate/validation": "^5.5.17",
     "caouecs/laravel-lang": "~3.0",
     "psr/container": "^1.0@dev",
     "http-interop/http-middleware": "^0.4.1"
