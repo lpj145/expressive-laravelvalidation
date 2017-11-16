@@ -3,6 +3,8 @@ namespace ExpressiveLaravelValidation;
 
 use ExpressiveLaravelValidation\Factory\LaravelValidationFactory;
 use ExpressiveLaravelValidation\Factory\ValidationFactory;
+use ExpressiveLaravelValidation\Factory\ValidationMiddlewareFactory;
+use Illuminate\Validation\Factory;
 use Illuminate\Validation\Validator;
 
 class ConfigProvider
@@ -10,7 +12,7 @@ class ConfigProvider
     public function __invoke()
     {
         return [
-          'dependencies' => $this->getDependencies(),
+            'dependencies' => $this->getDependencies(),
             'validation' => [
                 'locale' => 'en'
             ]
@@ -20,10 +22,9 @@ class ConfigProvider
     public function getDependencies()
     {
         return [
-          'factories' => [
-              Validator::class => LaravelValidationFactory::class,
-              Validation::class => ValidationFactory::class,
-          ]
+              'factories' => [
+                  Factory::class => LaravelValidationFactory::class,
+              ]
         ];
     }
 }

@@ -11,12 +11,13 @@ class LaravelValidationFactory
 {
     public function __invoke(ContainerInterface $container)
     {
+        $locale = $container->get('config')['validation']['locale'] ?? 'pt-BR';
         $translator = new Translator(
             new FileLoader(
                 new Filesystem(),
-                __DIR__.'/../vendor/caouecs/laravel-lang/src/'
+                __DIR__.'/../../vendor/caouecs/laravel-lang/src'
             ),
-            $container->get('config')['validation']['locale'] ?? 'en'
+            $locale
         );
         return new Factory($translator);
     }
