@@ -15,7 +15,7 @@ class LaravelValidationFactory
         $translator = new Translator(
             new FileLoader(
                 new Filesystem(),
-                __DIR__.'/../../vendor/caouecs/laravel-lang/src'
+                __DIR__.'/../lang/'
             ),
             $locale
         );
