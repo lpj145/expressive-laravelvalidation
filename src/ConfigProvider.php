@@ -14,7 +14,7 @@ class ConfigProvider
         return [
             'dependencies' => $this->getDependencies(),
             'validation' => [
-                'locale' => 'en'
+                'locale' => 'pt-BR'
             ]
         ];
     }
