@@ -1,11 +1,6 @@
 <?php
 namespace ExpressiveLaravelValidation;
 
-use ExpressiveLaravelValidation\Factory\LaravelValidationFactory;
-use ExpressiveLaravelValidation\Factory\ValidationFactory;
-use ExpressiveLaravelValidation\Factory\ValidationMiddlewareFactory;
-use Illuminate\Validation\Factory;
-use Illuminate\Validation\Validator;
 
 class ConfigProvider
 {
@@ -23,7 +18,7 @@ class ConfigProvider
     {
         return [
               'factories' => [
-                  Factory::class => LaravelValidationFactory::class,
+                  Validation::class => ValidationFactory::class
               ]
         ];
     }

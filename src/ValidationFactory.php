@@ -1,15 +1,14 @@
 <?php
-namespace ExpressiveLaravelValidation\Factory;
+namespace ExpressiveLaravelValidation;
 
+use Psr\Container\ContainerInterface;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Translation\FileLoader;
 use Illuminate\Translation\Translator;
-use Illuminate\Validation\Factory;
-use Psr\Container\ContainerInterface;
 
-class LaravelValidationFactory
+class ValidationFactory
 {
-    public function __invoke(ContainerInterface $container)
+    public function __construct(ContainerInterface $container)
     {
         $locale = $container->get('config')['validation']['locale'] ?? 'pt-BR';
         $translator = new Translator(
@@ -19,6 +18,7 @@ class LaravelValidationFactory
             ),
             $locale
         );
-        return new Factory($translator);
+
+        return new Validation($translator);
     }
 }
