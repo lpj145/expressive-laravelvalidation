@@ -10,9 +10,12 @@ class Validation extends Factory
      */
     private static $instance;
 
+    /**
+     * Set as global scope functionality
+     */
     public function setAsGlobal()
     {
-        static::$instance = $this;
+        self::$instance = $this;
     }
 
     /**
@@ -22,6 +25,6 @@ class Validation extends Factory
      */
     public static function __callStatic($name, $arguments)
     {
-        return static::$instance;
+        return self::$instance;
     }
 }
