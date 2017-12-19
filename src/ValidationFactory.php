@@ -8,7 +8,7 @@ use Illuminate\Translation\Translator;
 
 class ValidationFactory
 {
-    public function __construct(ContainerInterface $container)
+    public function __invoke(ContainerInterface $container)
     {
         $locale = $container->get('config')['validation']['locale'] ?? 'pt-BR';
         $translator = new Translator(
