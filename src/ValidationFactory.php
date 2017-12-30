@@ -14,7 +14,7 @@ class ValidationFactory
         $translator = new Translator(
             new FileLoader(
                 new Filesystem(),
-                __DIR__.'/../lang/'
+                __DIR__.'/lang/'
             ),
             $locale
         );
