@@ -21,7 +21,7 @@ class ValidationFactory
         );
 
         $validation = new Validation($translator);
-        $validation->extend('file-psr', function ($attribute, $value, $parameters, $validator) {
+        $validation->extend('FilePsr', function ($attribute, $value, $parameters, $validator) {
             return $value instanceof UploadedFileInterface;
         });
         $validation->setAsGlobal();
