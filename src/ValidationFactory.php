@@ -5,6 +5,7 @@ use Psr\Container\ContainerInterface;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Translation\FileLoader;
 use Illuminate\Translation\Translator;
+use Psr\Http\Message\UploadedFileInterface;
 
 class ValidationFactory
 {
@@ -20,6 +21,9 @@ class ValidationFactory
         );
 
         $validation = new Validation($translator);
+        $validation->extend('file-psr', function ($attribute, $value, $parameters, $validator) {
+            return $value instanceof UploadedFileInterface;
+        });
         $validation->setAsGlobal();
         return $validation;
     }
